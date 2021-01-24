@@ -110,7 +110,8 @@ public class IndexReport
                               ProjectBuilder projectBuilder, ArtifactRepository localRepository, String title,
                               String description, Sink sink, I18N i18n, Locale locale, Log log, SiteTool siteTool )
         {
-            super( sink, project, reactorProjects, projectBuilder, localRepository, i18n, locale, log, siteTool );
+            super( sink, project, reactorProjects, projectBuilder, localRepository, i18n, locale, log,
+                    false, false, false, siteTool );
 
             this.title = title;
 
@@ -130,7 +131,7 @@ public class IndexReport
 
             paragraph( description );
 
-            if ( !project.getModel().getModules().isEmpty() )
+            if ( !project.getModules().isEmpty() )
             {
                 modules = true;
                 super.renderBody();
